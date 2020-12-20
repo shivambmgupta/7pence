@@ -14,8 +14,11 @@
   <link rel="stylesheet" href="vendors/owl-carousel/owl.theme.default.min.css">
   <link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
   <link rel="stylesheet" href="vendors/Magnific-Popup/magnific-popup.css">
-
   <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/smtp.js"></script>
+
+  </script>
 </head>
 <body>
   <!--================ Header Top Area Start =================
@@ -89,31 +92,31 @@
     <div class="card-body">
   
       <!-- Material form register -->
-      <form>
+      <form onsubmit="return onSubmit()">
         <p class="h4 text-center py-4">Say Hi!</p>
   
         <!-- Material input text -->
         <div class="md-form" style="margin-bottom:7% ">
-            <input type="text" id="materialFormNameModalEx1" class="form-control form-control-sm" placeholder="Your Name">
+            <input type="text" id="client_name" class="form-control form-control-sm" placeholder="Your Name">
          </div>
   
         <!-- Material input email -->
         <div class="md-form" style="margin-bottom:7% ">
-          <input type="email" id="materialFormCardEmailEx" class="form-control form-control-sm" placeholder="Your Email">
+          <input type="email" id="client_email" class="form-control form-control-sm" placeholder="Your Email">
         </div>
   
         <!-- Material input email -->
         <div class="md-form" style="margin-bottom:7% ">
-          <input type="number" id="materialFormCardConfirmEx" class="form-control form-control-sm" placeholder="Phone Number">
+          <input type="number" id="client_phone_number" class="form-control form-control-sm" placeholder="Phone Number">
          </div>
   
         <!-- Material input password -->
         <div class="md-form" style="margin-bottom:7% ">
-          <input type="text" id="materialFormCardPasswordEx" class="form-control form-control-sm" placeholder="Serive Required">
+          <input type="text" id="service_type" class="form-control form-control-sm" placeholder="Service Type">
          </div>
   
         <div class="text-center py-4 mt-3">
-          <button class="btn btn-cyan" type="submit">Send</button>
+          <button class="btn btn-cyan" onclick="sendEmail()">Send</button>
         </div>
       </form>
       <!-- Material form register -->
