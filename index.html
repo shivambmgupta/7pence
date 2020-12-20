@@ -16,9 +16,32 @@
   <link rel="stylesheet" href="vendors/Magnific-Popup/magnific-popup.css">
 
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/smtp.js"></script>
+  <script>
+    var response = ''
+    async function sendEmail() {
+      var body= "Name: " + document.getElementById('client_name').value + "\n" + "Email: " + document.getElementById('client_email').value + "\nPhone Number: " + document.getElementById('client_phone_number').value + "\nService Type: " + document.getElementById('service_type').value;
+      //alert(body);
+      response = await Email.send({
+        Host: "smtp.gmail.com",
+        Username: "*********@gmail.com",
+        Password: "**********",
+        To: "*********@gmail.com",
+        From: "***********@gmail.com",
+        Subject: "New Client!",
+        Body: body,
+      });
+      alert(response);
+    }
+
+    function onSubmit() {
+        return false;
+    }
+
+  </script>
 </head>
 <body>
-  <!--================ Header Top Area Start =================-->
+  <!--================ Header Top Area Start =================
   <section class="header-top d-none d-sm-block">
     <div class="container">
       <div class="d-sm-flex justify-content-between">
@@ -27,7 +50,7 @@
           <li><a href="mailto:pushpasinghal7@gmail.com"><span class="align-middle"><i class="ti-email"></i></span>pushpasinghal7@gmail.com</a></li>
         </ul>
         <ul class="header-top__social">
-          <li><a href="#"><i class="ti-facebook"></i></a></li>
+          <li><a href="https://www.facebook.com/shivambmgupta"><i class="ti-facebook"></i></a></li>
           <li><a href="#"><i class="ti-twitter-alt"></i></a></li>
           <li><a href="#"><i class="ti-instagram"></i></a></li>
           <li><a href="#"><i class="ti-skype"></i></a></li>
@@ -35,6 +58,7 @@
       </div>
     </div>
   </section>
+  -->
   <!--================ Header Top Area end =================-->
 
   <!--================ Header Menu Area start =================-->
@@ -42,7 +66,9 @@
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container box_1620">
-          <a class="navbar-brand logo_h" href="index.html"></a>
+          <a class="navbar-brand logo_h" href="index.html">
+            <h2 style = 'color: white' >7Pence Advisors</h2>
+            </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -50,11 +76,12 @@
           </button>
 
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-            <ul class="nav navbar-nav menu_nav justify-content-end">
-              <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
-              <li class="nav-item"><a class="nav-link" href="#about">About</a></li> 
-              <li class="nav-item"><a class="nav-link" href="#services">Services</a>
-              <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            <ul class="nav navbar-nav menu_nav justify-content-end" >
+              <li class="nav-item active"><a class="nav-link" href="index.html" style='color: #fff;'>Home</a></li> 
+              <li class="nav-item"><a class="nav-link" href="services.html" style='color: #fff;'>Services</a></li> 
+              <li class="nav-item"><a class="nav-link" href="blogs.html" style='color: #fff;'>Blogs</a>
+              <li class="nav-item"><a class="nav-link" href="testimonials.html" style='color: #fff;'>Testimonials</a>
+              <li class="nav-item"><a class="nav-link" href="contacts.html" style='color: #fff;'>Contacts</a></li>
             </ul>
           </div> 
         </div>
@@ -121,162 +148,48 @@
     </div>	
     <div class="about__videoWrapper">
       <div class="about__video">
-        <div class="about__video-image">
-          <img class="card-img" src="img/home/video-bg.png" alt="">
-        </div>
-        <div class="about__videoContent">
-          <a id="play-home-video" class="video-play-button" href="https://www.youtube.com/watch?v=vParh5wE-tM">
-            <span></span>
-          </a>
-          <h4>Watch our video</h4>
-        </div>
-      </div>
-    </div>
+<div class="card" style='margin: 5%;'>
 
+<!-- Card body -->
+<div class="card-body">
+
+<!-- Material form register -->
+<form onsubmit="return onSubmit()">
+  <p class="h4 text-center py-4">Say Hi!</p>
+
+  <!-- Material input text -->
+  <div class="md-form" style="margin-bottom:7% ">
+      <input type="text" id="client_name" class="form-control form-control-sm" placeholder="Your Name">
+   </div>
+
+  <!-- Material input email -->
+  <div class="md-form" style="margin-bottom:7% ">
+    <input type="email" id="client_email" class="form-control form-control-sm" placeholder="Your Email">
+  </div>
+
+  <!-- Material input email -->
+  <div class="md-form" style="margin-bottom:7% ">
+    <input type="number" id="client_phone_number" class="form-control form-control-sm" placeholder="Phone Number">
+   </div>
+
+  <!-- Material input password -->
+  <div class="md-form" style="margin-bottom:7% ">
+    <input type="text" id="service_type" class="form-control form-control-sm" placeholder="Service Type">
+   </div>
+
+  <div class="text-center py-4 mt-3">
+    <button class="btn btn-cyan" onclick="sendEmail()">Send</button>
+  </div>
+</form>
+<!-- Material form register -->
+
+</div>
+</div>
+</div>
+<!-- Card body -->
+<!-- Card -->
   </section>
   <!--================ About section end =================-->
-
-
-  <!--================ Subject section start =================-->
-  <section id ='services' class="section-margin">
-    <div class="container">
-      <div class="section-intro text-center pb-65px">
-        <h2 class="section-intro__title">Our Practice Area</h2>
-        <p><quote>The desire of gold is not for gold. It is for the means of freedom and benefit.<quote>
-<p>~Ralph Waldo Emerson</p>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 col-lg-4 col-xl-3 mb-4 mb-xl-0">
-          <div class="card card-subject">
-            <div class="card-subject__img">
-              <img class="card-img rounded-0" src="img/home/subject-1.png" alt="">
-              <div class="card-subject__imgOverlay">
-                <img src="img/home/money.png" alt="">
-              </div>
-            </div>
-            <div class="card-subject__body">
-              <h3><a href="#">Financial Consultant</a></h3>
-              <p>Finance issues? No worries. Consulation is always good. </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-lg-4 col-xl-3 mb-4 mb-xl-0">
-          <div class="card card-subject">
-            <div class="card-subject__img">
-              <img class="card-img rounded-0" src="img/home/subject-2.png" alt="">
-              <div class="card-subject__imgOverlay">
-                <img src="img/home/money.png" alt="">
-              </div>
-            </div>
-            <div class="card-subject__body">
-              <h3><a href="#"> Loan Syndications </a></h3>
-              <p>Dominion there fifth fowl eving heaven in life you're over us moved creepeth morn make</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-lg-4 col-xl-3 mb-4 mb-xl-0">
-          <div class="card card-subject">
-            <div class="card-subject__img">
-              <img class="card-img rounded-0" src="img/home/subject-3.png" alt="">
-              <div class="card-subject__imgOverlay">
-                <img src="img/home/money.png" alt="">
-              </div>
-            </div>
-            <div class="card-subject__body">
-              <h3><a href="#"> Finance Modelling </a></h3>
-              <p>Dominion there fifth fowl eving heaven in life you're over us moved creepeth morn make</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-sm-6 col-lg-4 col-xl-3 mb-4 mb-xl-0">
-          <div class="card card-subject">
-            <div class="card-subject__img">
-              <img class="card-img rounded-0" src="img/home/subject-4.png" alt="">
-              <div class="card-subject__imgOverlay">
-                <img src="img/home/money.png" alt="">
-              </div>
-            </div>
-            <div class="card-subject__body">
-              <h3><a href="#"> Working Capital Management </a></h3>
-              <p>Dominion there fifth fowl eving heaven in life you're over us moved creepeth morn make</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 text-center mt-5 pt-xl-4">
-        <a class="button" href="#">View All Practices <span class="align-middle"><i class="ti-arrow-right"></i></span></a>
-      </div>
-    </div>
-  </section>
-  <!--================ Subject section end =================-->
-
-  <!--================ Testimonial section start =================-->  
-  <section class="bg-albaster section-padding--small">
-    <div class="container">
-      <div class="section-intro text-center pb-65px">
-        <h2 class="section-intro__title">Client Says About Me</h2>
-        <p>Female divided bearing rule one called said Beginning set you living above saw seasons void created fruitful third years god.</p>
-      </div>
-
-      <div class="owl-carousel owl-theme testimonial">
-        <div class="testimonial__item">
-          <div class="row">
-            <div class="col-md-3 col-lg-2 align-self-center">
-              <div class="testimonial__img">
-                <img class="card-img rounded-0" src="img/testimonial/testimonial1.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-9 col-lg-10">
-              <div class="testimonial__content mt-3 mt-sm-0">
-                <h3>Mosan Cameron</h3>
-                <p>Executive, Fedex</p>
-                <p class="testimonial__i">Also made from. Give may saying meat there from heaven it lights face had is gathered god earth light for life may itself shall whales made they're blessed whales also made from give may saying meat. There from heaven it lights face had</p>
-                <span class="testimonial__icon"><i class="ti-quote-right"></i></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial__item">
-          <div class="row">
-            <div class="col-md-3 col-lg-2 align-self-center">
-              <div class="testimonial__img">
-                <img class="card-img rounded-0" src="img/testimonial/testimonial1.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-9 col-lg-10">
-              <div class="testimonial__content mt-3 mt-sm-0">
-                <h3>Mosan Cameron</h3>
-                <p>Executive, Fedex</p>
-                <p class="testimonial__i">Also made from. Give may saying meat there from heaven it lights face had is gathered god earth light for life may itself shall whales made they're blessed whales also made from give may saying meat. There from heaven it lights face had</p>
-                <span class="testimonial__icon"><i class="ti-quote-right"></i></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial__item">
-          <div class="row">
-            <div class="col-md-3 col-lg-2 align-self-center">
-              <div class="testimonial__img">
-                <img class="card-img rounded-0" src="img/testimonial/testimonial1.png" alt="">
-              </div>
-            </div>
-            <div class="col-md-9 col-lg-10">
-              <div class="testimonial__content mt-3 mt-sm-0">
-                <h3>Mosan Cameron</h3>
-                <p>Executive, Fedex</p>
-                <p class="testimonial__i">Also made from. Give may saying meat there from heaven it lights face had is gathered god earth light for life may itself shall whales made they're blessed whales also made from give may saying meat. There from heaven it lights face had</p>
-                <span class="testimonial__icon"><i class="ti-quote-right"></i></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--================ Testimonial section end =================-->  
 
   <!--================ Team section start =================-->  
   <section class="section-margin">
